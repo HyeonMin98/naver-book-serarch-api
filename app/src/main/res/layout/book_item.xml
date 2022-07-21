@@ -32,15 +32,14 @@
             android:layout_height="wrap_content"
             android:text="저자"
             android:textColor="#00f"
-            android:textSize="30dp" />
+/>
 
         <TextView
             android:id="@+id/book_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="가격"
-            android:textColor="#00f"
-            android:textSize="30dp" />
+            android:textColor="#00f" />
 
 
     </LinearLayout>

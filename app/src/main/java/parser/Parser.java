@@ -18,6 +18,7 @@ public class Parser {
     String myQuery = ""; //검색어를 의미
 
 
+    //서버에 연결을 해서 xml파일을 불러오고, 자바로 파싱해서 필요한 요소만 vo에 담고 arrayList에 저장해서 list로 반환한다.
     public ArrayList<BookVO> connectNaver(){
         ArrayList<BookVO> list = new ArrayList<>();
 
@@ -25,7 +26,7 @@ public class Parser {
             //검색어 (myQuery)를 UTF-8 형태로 인코딩
             myQuery = URLEncoder.encode(NaverActivity.search.getText().toString(),"UTF-8");
 
-            String urlstr = "https://openapi.naver.com/v1/search/blog.xml?query="+myQuery+"&display=100";
+            String urlstr = "https://openapi.naver.com/v1/search/book.xml?query="+myQuery+"&display=100";
 
             URL url = new URL(urlstr);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -67,18 +68,17 @@ public class Parser {
                     }else if(tagName.equals("price")){
                         String price = parser.nextText();
                         vo.setB_price(Integer.parseInt(price));
+                        list.add(vo); //마지막 정보인 price까지 찾고난 뒤 list에 저장.
                     }
-                    list.add(vo); //마지막 정보인 price까지 찾고난 뒤 list에 저장.
+
                 }
                 parserEvent = parser.next(); //다음 요소를 가져올때 순서대로 가져와야한다.
             }//while
-
 
         }catch(Exception e){
 
         }
         return list;
-
     }
 
 
