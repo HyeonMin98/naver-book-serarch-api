@@ -3,8 +3,8 @@ package vo;
 public class BookVO {
     //네이버 도서 서버에서 얻어올 정보를 저장할 변수
     //제목, 저자, 가격, 이미지(URL, 있는경우만 나타남)
-    private String b_title, b_author,b_img ;
-    private int b_price;
+    private String b_title, b_author,b_img, b_price ;
+//    private int ;
 
 
     public String getB_title() {
@@ -31,11 +31,11 @@ public class BookVO {
         this.b_img = b_img;
     }
 
-    public int getB_price() {
+    public String getB_price() {
         return b_price;
     }
 
-    public void setB_price(int b_price) {
+    public void setB_price(String b_price) {
         this.b_price = b_price;
     }
 }

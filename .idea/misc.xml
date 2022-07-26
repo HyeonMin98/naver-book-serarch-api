@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/developer/web14_android_LHM/work/Ex_NaverAPI/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1435" />
         <entry key="..\:/developer/web14_android_LHM/work/Ex_NaverAPI/app/src/main/res/layout/activity_naver.xml" value="0.25" />
+        <entry key="..\:/developer/web14_android_LHM/work/Ex_NaverAPI/app/src/main/res/layout/activity_sub.xml" value="0.25" />
         <entry key="..\:/developer/web14_android_LHM/work/Ex_NaverAPI/app/src/main/res/layout/book_item.xml" value="0.25" />
       </map>
     </option>

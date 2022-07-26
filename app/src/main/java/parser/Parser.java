@@ -9,6 +9,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import vo.BookVO;
 
@@ -58,6 +60,18 @@ public class Parser {
                     if(tagName.equals("title")){
                         vo = new BookVO();
                         String title = parser.nextText();
+                        //가져온 title에 <b>태그가 들어있는지 검사.
+                        //한글자 짜리 태그들을 찾아주면서 닫히는 태그들까지 감지해줄수 있는 정규식
+                        Pattern pattern = Pattern.compile("<.*?>");
+                        Matcher matcher = pattern.matcher(title);
+
+                        if(matcher.find()){
+                            String s_title = matcher.replaceAll("");
+                            vo.setB_title(s_title);
+                        }else{
+                            vo.setB_title(title);
+                        }
+
                         vo.setB_title(title);
                     }else if(tagName.equals("image")){
                         String img = parser.nextText();
@@ -67,7 +81,7 @@ public class Parser {
                         vo.setB_author(author);
                     }else if(tagName.equals("price")){
                         String price = parser.nextText();
-                        vo.setB_price(Integer.parseInt(price));
+                        vo.setB_price(price);
                         list.add(vo); //마지막 정보인 price까지 찾고난 뒤 list에 저장.
                     }
 
